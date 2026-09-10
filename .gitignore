@@ -1,2 +1,35 @@
+# Environment variables / secrets (NEVER commit)
+.env
+.env.*
+!.env.example
 Ai_/.env
-Ai_/__pycache__/
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Node / frontend build
+node_modules/
+dist/
+dist-ssr/
+
+# Database & runtime data
+*.db
+*.sqlite3
+Data_base/*.db
+uploads/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sw?
+
+# Logs
+*.log

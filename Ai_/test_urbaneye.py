@@ -3,8 +3,9 @@ from urbaneye_ai import analyze_image
 import os
 import json
 
-# Folder containing test images
-TEST_FOLDER = "test_images"
+# Folder containing test images (relative to this script so it works from
+# any working directory, not just Ai_/)
+TEST_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_images")
 
 # Supported image formats
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png")

@@ -1,50 +1,47 @@
-# CivicPulse Frontend
+# UrbanEye Frontend
 
-A modern landing page for **CivicPulse** — a civic engagement platform that connects citizens with local government.
+React + TypeScript + Vite + Tailwind CSS frontend for **UrbanEye** — an
+AI-powered civic issue reporting and monitoring platform.
 
-Built with React, TypeScript, Vite, and Tailwind CSS v4.
+See the **[project README](../README.md)** for the full architecture, setup
+instructions and API overview.
 
-## Prerequisites
-
-Install [Node.js LTS](https://nodejs.org/) (includes npm). Verify with:
-
-```bash
-node --version
-npm --version
-```
-
-If `npm` is not recognized, restart your terminal after installing Node.js.
-
-## Getting Started
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open <http://localhost:5173>. The dev server proxies `/api` and `/uploads` to
+the FastAPI backend at <http://127.0.0.1:8000>.
 
 ## Scripts
 
-| Command         | Description              |
-| --------------- | ------------------------ |
-| `npm run dev`   | Start development server |
-| `npm run build` | Build for production     |
-| `npm run preview` | Preview production build |
+| Command           | Description                        |
+| ----------------- | ---------------------------------- |
+| `npm run dev`     | Start the development server       |
+| `npm run build`   | Type-check (`tsc -b`) and bundle   |
+| `npm run preview` | Preview the production build       |
+| `npm run lint`    | Lint the source                    |
 
-## Project Structure
+## Structure
 
 ```
 src/
+├── api/           # API client + typed request layer
+├── auth/          # AuthContext (login/register/session restore)
 ├── components/
-│   ├── Navbar.tsx       # Fixed navigation header
-│   ├── Hero.tsx         # Hero section with dashboard preview
-│   ├── Features.tsx     # Feature cards grid
-│   ├── HowItWorks.tsx   # Three-step process
-│   ├── Stats.tsx        # Impact statistics
-│   ├── CTA.tsx          # Email signup call-to-action
-│   └── Footer.tsx       # Site footer
-├── App.tsx              # Page layout
-├── main.tsx             # React entry point
-└── index.css            # Tailwind theme & base styles
+│   ├── layout/    # Navbar, Footer, Layout
+│   ├── ui/        # Button, Badge, Card, Field, Spinner, EmptyState, Toast
+│   ├── map/       # ReportMap (Leaflet) + LocationPicker
+│   ├── auth/      # RequireAuth / RequireAdmin route guards
+│   ├── Logo.tsx   # UrbanEye eye mark
+│   └── ReportCard.tsx
+├── pages/         # Home, Login, Register, ReportIssue, MyReports,
+│                  # ReportDetail, AdminDashboard, MapPage, NotFound
+├── lib/           # Category/severity/status constants + styles
+├── types.ts       # Shared TypeScript types
+├── App.tsx        # Route definitions
+└── main.tsx       # Entry point + providers
 ```
